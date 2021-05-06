@@ -1,0 +1,82 @@
+const cards = 	document.querySelectorAll('.game-card');
+// VARIABLE TEXTE
+const countFlip = document.getElementById('flip-count');
+const countVictory = document.getElementById('victory-count');
+const victoryScreen = document.getElementById('victory');
+
+let hasFlippedCard = false;
+// LOCKER DE PLATEAU
+let lockBoard = false;
+let firstCard, secondCard;
+let totalFlip = 0;
+let pointVictory = 0;
+// FONCTION FlipCard
+function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+    // verification de l'etat cliqué
+    this.classList.toggle('flip');
+    if(!hasFlippedCard) {
+        // click sur le firstCard
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+    //else {
+    // click second card
+    hasFlippedCard = false;
+    secondCard = this;
+    // LANCEMENT DE LA FONCTION MATCH ?
+    checkForMatch();
+    //}
+}
+//
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+    resetBoard();
+    // AJOUT POINTS
+    totalFlip++;
+    countFlip.innerText = totalFlip;
+    pointVictory++;
+    countVictory.innerText = pointVictory;
+    if (pointVictory == 6) {
+        victoryScreen.classList.add('display');
+    }
+}
+//
+function unflipCards() {
+    lockBoard = true;
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        // AJOUT DES COUPS
+        totalFlip++;
+        countFlip.innerText = totalFlip;
+        resetBoard();
+    }, 1500);
+}
+//
+function checkForMatch() {
+    if(firstCard.dataset.cardname === secondCard.dataset.cardname) {
+        disableCards();
+    } else {
+        // cela ne marche pas
+        unflipCards()
+    }
+}
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+// FONCTION ALEATOIRE DES CARTES
+(function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    });
+})();
+
+
+// BOUCLE DE REPETITION
+cards.forEach(card => card.addEventListener('click', flipCard));

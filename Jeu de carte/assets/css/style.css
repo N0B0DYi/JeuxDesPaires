@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    /* display: flex; */
+    background: burlywood;
+}
+
+img {
+    width: 100px;
+}
+
+.game-scene {
+    margin: auto;
+    width: 640px;
+    height: 640px;
+/*  border: 2px solid darkred;*/
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.game-card {
+    position: relative;
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 10px;
+    background-color: darkslategray;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+
+.game-card:active {
+    transform: scale(0.95);
+    transition: transform .4s;
+}
+
+.game-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#victory h2,
+#victory a {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -100;
+    color: white;
+    font-family: Impact, sans-serif;
+}
+
+#victory.display h2 {
+    z-index: 100;
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+}
+
+#victory.display a {
+    z-index: 100;
+    display: flex;
+    top: 333px;
+    animation: overlay-text 500ms forwards;
+}
+
+@keyframes overlay-text {
+    from {
+        font-size: 0;
+    }
+    to {
+        font-size: 2em;
+    }
+}
+@keyframes overlay-grow {
+    from {
+        background-color: black;
+        font-size: 0;
+    }
+    to {
+        background-color: black;
+        font-size: 10em;
+    }
+}

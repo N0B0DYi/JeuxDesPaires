@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Card la scene part 1</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="victory" class="victory-screen">
+        <h2>Gagné !</h2>
+        <a href="index.html" class="btn">rejouer ?</a>
+    </div>
+    <header class="gameInfos">
+        <h1>Jeu de paires</h1>
+        <div class="game-info">
+            Nombre de coups : <span id="flip-count">0</span>
+        </div>
+        <div class="game-info">
+            Nombre de paire(s) trouvée(s) : <span id="victory-count">0</span>/6
+        </div>
+
+    </header>
+    <!-- LA SCENE DU JEU-->
+    <section class="game-scene">
+        <!-- CARTE 1 -->
+        <div class="game-card" data-cardname="cypher">
+            <img src="assets/img/cypher.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 2 -->
+        <div class="game-card" data-cardname="cypher">
+            <img src="assets/img/cypher.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 3 -->
+        <div class="game-card" data-cardname="reyna">
+            <img src="assets/img/reyna.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 4 -->
+        <div class="game-card" data-cardname="reyna">
+            <img src="assets/img/reyna.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 5 -->
+        <div class="game-card" data-cardname="jett">
+            <img src="assets/img/jett.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 6 -->
+        <div class="game-card" data-cardname="jett">
+            <img src="assets/img/jett.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 7 -->
+        <div class="game-card" data-cardname="sova">
+            <img src="assets/img/sova.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 8 -->
+        <div class="game-card" data-cardname="sova">
+            <img src="assets/img/sova.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 9 -->
+        <div class="game-card" data-cardname="viper">
+            <img src="assets/img/viper.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 10 -->
+        <div class="game-card" data-cardname="viper">
+            <img src="assets/img/viper.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 11 -->
+        <div class="game-card" data-cardname="kj">
+            <img src="assets/img/kj.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+        <!-- CARTE 12 -->
+        <div class="game-card" data-cardname="kj">
+            <img src="assets/img/kj.png" alt="légende de l'image" class="front-face">
+            <img src="assets/img/back.png" alt="légende de l'image" class="back-face">
+        </div>
+    </section>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
